@@ -1,0 +1,659 @@
+/**
+ * 
+ */
+package checkbox;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JSplitPane;
+import javax.swing.JCheckBox;
+import java.awt.GridLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.TextArea;
+import javax.swing.JTree;
+import javax.swing.JComboBox;
+import javax.swing.JList;
+import javax.swing.JSeparator;
+import javax.swing.JTextPane;
+import java.awt.FlowLayout;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.Color;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+
+/**
+ * @author Andi1990bbg
+ * @param <Jlabel>
+ *
+ */
+public class Checkbox<Jlabel> extends JFrame {
+	//hier fehlt noch die restlichen Checkboxen
+	final String ergebnis = ("won");
+
+	java.awt.Checkbox kapitel1 = new java.awt.Checkbox("Kapitel 1");
+	java.awt.Checkbox kapitel2 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox kapitel3 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox kapitel4 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox kapitel5 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox kapitel6 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox kapitel7 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox kapitel8 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox kapitel9 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox kapitel10 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox kapitel11 = new java.awt.Checkbox("New check box");	
+	java.awt.Checkbox kapitel12 = new java.awt.Checkbox("New check box");
+	
+	java.awt.Checkbox welt1_1 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox welt1_2 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox welt1_3 = new java.awt.Checkbox("New check box");
+	java.awt.Checkbox welt1_4 = new java.awt.Checkbox("New check box");
+	
+	//ende
+	
+	JLabel gentext;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Checkbox frame = new Checkbox();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Checkbox() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 753, 552);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		GridBagLayout gbl_contentPane = new GridBagLayout();
+		gbl_contentPane.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 35, 0, 20, 0, 0, 0, 0, 30, 0, 20, 0, 0, 0, 0, 0};
+		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		contentPane.setLayout(gbl_contentPane);
+
+		JButton Start = new JButton("Start");
+		Start.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				gentext.setText(ergebnis);
+			}
+		});
+		GridBagConstraints gbc_Start = new GridBagConstraints();
+		gbc_Start.insets = new Insets(0, 0, 5, 5);
+		gbc_Start.gridx = 1;
+		gbc_Start.gridy = 2;
+		contentPane.add(Start, gbc_Start);
+		
+		JButton anwahl = new JButton("Alle Anw\u00E4hlen");
+		GridBagConstraints gbc_anwahl = new GridBagConstraints();
+		gbc_anwahl.insets = new Insets(0, 0, 5, 5);
+		gbc_anwahl.gridx = 4;
+		gbc_anwahl.gridy = 2;
+		contentPane.add(anwahl, gbc_anwahl);
+		
+
+		kapitel1.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				
+				//ab hier mein code
+				if(e.getStateChange() == ItemEvent.DESELECTED)
+		{
+				   welt1_1.setState(false);
+				   welt1_2.setState(false);
+				   welt1_3.setState(false);
+				   welt1_4.setState(false);
+		}
+			 if(e.getStateChange() == ItemEvent.SELECTED)
+			 {
+				 welt1_1.setState(true);
+				 welt1_2.setState(true);
+				 welt1_3.setState(true);
+				 welt1_4.setState(true);
+			 }
+			}
+			
+			//ende
+			
+		});
+		
+		JButton abwaehlen = new JButton("Alle Abw\u00E4hlen");
+		abwaehlen.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				kapitel1.setState(false);
+				kapitel2.setState(false);
+				kapitel3.setState(false);
+				kapitel4.setState(false);
+				kapitel5.setState(false);
+				kapitel6.setState(false);
+				kapitel7.setState(false);
+				kapitel8.setState(false);
+				kapitel9.setState(false);
+				kapitel10.setState(false);
+				kapitel11.setState(false);
+				kapitel12.setState(false);
+			}
+		});
+		GridBagConstraints gbc_abwaehlen = new GridBagConstraints();
+		gbc_abwaehlen.insets = new Insets(0, 0, 5, 0);
+		gbc_abwaehlen.gridx = 6;
+		gbc_abwaehlen.gridy = 2;
+		contentPane.add(abwaehlen, gbc_abwaehlen);
+		gentext = new JLabel();
+		gentext.setForeground(Color.RED);
+		gentext.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		GridBagConstraints gbc_gentext = new GridBagConstraints();
+		gbc_gentext.insets = new Insets(0, 0, 5, 5);
+		gbc_gentext.gridx = 1;
+		gbc_gentext.gridy = 3;
+		contentPane.add(gentext, gbc_gentext);
+		kapitel1.setState(true);
+		GridBagConstraints gbc_kapitel1 = new GridBagConstraints();
+		gbc_kapitel1.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel1.gridx = 1;
+		gbc_kapitel1.gridy = 4;
+		contentPane.add(kapitel1, gbc_kapitel1);
+		
+
+		GridBagConstraints gbc_kapitel2 = new GridBagConstraints();
+		gbc_kapitel2.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel2.gridx = 2;
+		gbc_kapitel2.gridy = 4;
+		kapitel2.setState(true);
+		contentPane.add(kapitel2, gbc_kapitel2);
+		
+
+		GridBagConstraints gbc_kapitel3 = new GridBagConstraints();
+		gbc_kapitel3.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel3.gridx = 3;
+		gbc_kapitel3.gridy = 4;
+		kapitel3.setState(true);
+		contentPane.add(kapitel3, gbc_kapitel3);
+		
+
+		GridBagConstraints gbc_kapitel4 = new GridBagConstraints();
+		gbc_kapitel4.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel4.gridx = 4;
+		gbc_kapitel4.gridy = 4;
+		kapitel4.setState(true);
+		contentPane.add(kapitel4, gbc_kapitel4);
+		
+
+		GridBagConstraints gbc_kapitel5 = new GridBagConstraints();
+		gbc_kapitel5.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel5.gridx = 5;
+		gbc_kapitel5.gridy = 4;
+		kapitel5.setState(true);
+		contentPane.add(kapitel5, gbc_kapitel5);
+		
+
+		GridBagConstraints gbc_kapitel6 = new GridBagConstraints();
+		gbc_kapitel6.insets = new Insets(0, 0, 5, 0);
+		gbc_kapitel6.gridx = 6;
+		gbc_kapitel6.gridy = 4;
+		kapitel6.setState(true);
+		contentPane.add(kapitel6, gbc_kapitel6);
+		
+	//mein code
+		
+		
+		//ende meines codes
+		
+
+		welt1_1.setState(true);
+		GridBagConstraints gbc_welt1_1 = new GridBagConstraints();
+		gbc_welt1_1.insets = new Insets(0, 0, 5, 5);
+		gbc_welt1_1.gridx = 1;
+		gbc_welt1_1.gridy = 6;
+		contentPane.add(welt1_1, gbc_welt1_1);
+		
+		java.awt.Checkbox checkbox_1 = new java.awt.Checkbox("New check box");
+		checkbox_1.setState(true);
+		GridBagConstraints gbc_checkbox_1 = new GridBagConstraints();
+		gbc_checkbox_1.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_1.gridx = 2;
+		gbc_checkbox_1.gridy = 6;
+		contentPane.add(checkbox_1, gbc_checkbox_1);
+		
+		java.awt.Checkbox checkbox_6 = new java.awt.Checkbox("New check box");
+		checkbox_6.setState(true);
+		GridBagConstraints gbc_checkbox_6 = new GridBagConstraints();
+		gbc_checkbox_6.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_6.gridx = 3;
+		gbc_checkbox_6.gridy = 6;
+		contentPane.add(checkbox_6, gbc_checkbox_6);
+		
+		java.awt.Checkbox checkbox_11 = new java.awt.Checkbox("New check box");
+		checkbox_11.setState(true);
+		GridBagConstraints gbc_checkbox_11 = new GridBagConstraints();
+		gbc_checkbox_11.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_11.gridx = 4;
+		gbc_checkbox_11.gridy = 6;
+		contentPane.add(checkbox_11, gbc_checkbox_11);
+		
+		java.awt.Checkbox checkbox_17 = new java.awt.Checkbox("New check box");
+		checkbox_17.setState(true);
+		GridBagConstraints gbc_checkbox_17 = new GridBagConstraints();
+		gbc_checkbox_17.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_17.gridx = 5;
+		gbc_checkbox_17.gridy = 6;
+		contentPane.add(checkbox_17, gbc_checkbox_17);
+		
+		java.awt.Checkbox checkbox_21 = new java.awt.Checkbox("New check box");
+		checkbox_21.setState(true);
+		GridBagConstraints gbc_checkbox_21 = new GridBagConstraints();
+		gbc_checkbox_21.insets = new Insets(0, 0, 5, 0);
+		gbc_checkbox_21.gridx = 6;
+		gbc_checkbox_21.gridy = 6;
+		contentPane.add(checkbox_21, gbc_checkbox_21);
+		
+
+		welt1_2.setState(true);
+		GridBagConstraints gbc_welt1_2 = new GridBagConstraints();
+		gbc_welt1_2.insets = new Insets(0, 0, 5, 5);
+		gbc_welt1_2.gridx = 1;
+		gbc_welt1_2.gridy = 7;
+		contentPane.add(welt1_2, gbc_welt1_2);
+		
+		java.awt.Checkbox checkbox_2 = new java.awt.Checkbox("New check box");
+		checkbox_2.setState(true);
+		GridBagConstraints gbc_checkbox_2 = new GridBagConstraints();
+		gbc_checkbox_2.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_2.gridx = 2;
+		gbc_checkbox_2.gridy = 7;
+		contentPane.add(checkbox_2, gbc_checkbox_2);
+		
+		java.awt.Checkbox checkbox_7 = new java.awt.Checkbox("New check box");
+		checkbox_7.setState(true);
+		GridBagConstraints gbc_checkbox_7 = new GridBagConstraints();
+		gbc_checkbox_7.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_7.gridx = 3;
+		gbc_checkbox_7.gridy = 7;
+		contentPane.add(checkbox_7, gbc_checkbox_7);
+		
+		java.awt.Checkbox checkbox_12 = new java.awt.Checkbox("New check box");
+		checkbox_12.setState(true);
+		GridBagConstraints gbc_checkbox_12 = new GridBagConstraints();
+		gbc_checkbox_12.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_12.gridx = 4;
+		gbc_checkbox_12.gridy = 7;
+		contentPane.add(checkbox_12, gbc_checkbox_12);
+		
+		java.awt.Checkbox checkbox_18 = new java.awt.Checkbox("New check box");
+		checkbox_18.setState(true);
+		GridBagConstraints gbc_checkbox_18 = new GridBagConstraints();
+		gbc_checkbox_18.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_18.gridx = 5;
+		gbc_checkbox_18.gridy = 7;
+		contentPane.add(checkbox_18, gbc_checkbox_18);
+		
+		java.awt.Checkbox checkbox_22 = new java.awt.Checkbox("New check box");
+		checkbox_22.setState(true);
+		GridBagConstraints gbc_checkbox_22 = new GridBagConstraints();
+		gbc_checkbox_22.insets = new Insets(0, 0, 5, 0);
+		gbc_checkbox_22.gridx = 6;
+		gbc_checkbox_22.gridy = 7;
+		contentPane.add(checkbox_22, gbc_checkbox_22);
+		
+
+		welt1_3.setState(true);
+		GridBagConstraints gbc_welt1_3 = new GridBagConstraints();
+		gbc_welt1_3.insets = new Insets(0, 0, 5, 5);
+		gbc_welt1_3.gridx = 1;
+		gbc_welt1_3.gridy = 8;
+		contentPane.add(welt1_3, gbc_welt1_3);
+		
+		java.awt.Checkbox checkbox_3 = new java.awt.Checkbox("New check box");
+		checkbox_3.setState(true);
+		GridBagConstraints gbc_checkbox_3 = new GridBagConstraints();
+		gbc_checkbox_3.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_3.gridx = 2;
+		gbc_checkbox_3.gridy = 8;
+		contentPane.add(checkbox_3, gbc_checkbox_3);
+		
+		java.awt.Checkbox checkbox_8 = new java.awt.Checkbox("New check box");
+		checkbox_8.setState(true);
+		GridBagConstraints gbc_checkbox_8 = new GridBagConstraints();
+		gbc_checkbox_8.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_8.gridx = 3;
+		gbc_checkbox_8.gridy = 8;
+		contentPane.add(checkbox_8, gbc_checkbox_8);
+		
+		java.awt.Checkbox checkbox_13 = new java.awt.Checkbox("New check box");
+		checkbox_13.setState(true);
+		GridBagConstraints gbc_checkbox_13 = new GridBagConstraints();
+		gbc_checkbox_13.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_13.gridx = 4;
+		gbc_checkbox_13.gridy = 8;
+		contentPane.add(checkbox_13, gbc_checkbox_13);
+		
+		java.awt.Checkbox checkbox_19 = new java.awt.Checkbox("New check box");
+		checkbox_19.setState(true);
+		GridBagConstraints gbc_checkbox_19 = new GridBagConstraints();
+		gbc_checkbox_19.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_19.gridx = 5;
+		gbc_checkbox_19.gridy = 8;
+		contentPane.add(checkbox_19, gbc_checkbox_19);
+		
+		java.awt.Checkbox checkbox_23 = new java.awt.Checkbox("New check box");
+		checkbox_23.setState(true);
+		GridBagConstraints gbc_checkbox_23 = new GridBagConstraints();
+		gbc_checkbox_23.insets = new Insets(0, 0, 5, 0);
+		gbc_checkbox_23.gridx = 6;
+		gbc_checkbox_23.gridy = 8;
+		contentPane.add(checkbox_23, gbc_checkbox_23);
+		
+
+		welt1_4.setState(true);
+		GridBagConstraints gbc_welt1_4 = new GridBagConstraints();
+		gbc_welt1_4.insets = new Insets(0, 0, 5, 5);
+		gbc_welt1_4.gridx = 1;
+		gbc_welt1_4.gridy = 9;
+		contentPane.add(welt1_4, gbc_welt1_4);
+		
+		java.awt.Checkbox checkbox_4 = new java.awt.Checkbox("New check box");
+		checkbox_4.setState(true);
+		GridBagConstraints gbc_checkbox_4 = new GridBagConstraints();
+		gbc_checkbox_4.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_4.gridx = 2;
+		gbc_checkbox_4.gridy = 9;
+		contentPane.add(checkbox_4, gbc_checkbox_4);
+		
+		java.awt.Checkbox checkbox_9 = new java.awt.Checkbox("New check box");
+		checkbox_9.setState(true);
+		GridBagConstraints gbc_checkbox_9 = new GridBagConstraints();
+		gbc_checkbox_9.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_9.gridx = 3;
+		gbc_checkbox_9.gridy = 9;
+		contentPane.add(checkbox_9, gbc_checkbox_9);
+		
+		java.awt.Checkbox checkbox_14 = new java.awt.Checkbox("New check box");
+		checkbox_14.setState(true);
+		GridBagConstraints gbc_checkbox_14 = new GridBagConstraints();
+		gbc_checkbox_14.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_14.gridx = 4;
+		gbc_checkbox_14.gridy = 9;
+		contentPane.add(checkbox_14, gbc_checkbox_14);
+		
+		java.awt.Checkbox checkbox_20 = new java.awt.Checkbox("New check box");
+		checkbox_20.setState(true);
+		GridBagConstraints gbc_checkbox_20 = new GridBagConstraints();
+		gbc_checkbox_20.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_20.gridx = 5;
+		gbc_checkbox_20.gridy = 9;
+		contentPane.add(checkbox_20, gbc_checkbox_20);
+		
+		java.awt.Checkbox checkbox_24 = new java.awt.Checkbox("New check box");
+		checkbox_24.setState(true);
+		GridBagConstraints gbc_checkbox_24 = new GridBagConstraints();
+		gbc_checkbox_24.insets = new Insets(0, 0, 5, 0);
+		gbc_checkbox_24.gridx = 6;
+		gbc_checkbox_24.gridy = 9;
+		contentPane.add(checkbox_24, gbc_checkbox_24);
+		
+
+		GridBagConstraints gbc_kapitel7 = new GridBagConstraints();
+		gbc_kapitel7.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel7.gridx = 1;
+		gbc_kapitel7.gridy = 11;
+		kapitel7.setState(true);
+		contentPane.add(kapitel7, gbc_kapitel7);
+		
+
+		GridBagConstraints gbc_kapitel8 = new GridBagConstraints();
+		gbc_kapitel8.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel8.gridx = 2;
+		gbc_kapitel8.gridy = 11;
+		kapitel8.setState(true);
+		contentPane.add(kapitel8, gbc_kapitel8);
+		
+
+		GridBagConstraints gbc_kapitel9 = new GridBagConstraints();
+		gbc_kapitel9.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel9.gridx = 3;
+		gbc_kapitel9.gridy = 11;
+		kapitel9.setState(true);
+		contentPane.add(kapitel9, gbc_kapitel9);
+		
+
+		GridBagConstraints gbc_kapitel10 = new GridBagConstraints();
+		gbc_kapitel10.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel10.gridx = 4;
+		gbc_kapitel10.gridy = 11;
+		kapitel10.setState(true);
+		contentPane.add(kapitel10, gbc_kapitel10);
+
+		GridBagConstraints gbc_kapitel11 = new GridBagConstraints();
+		gbc_kapitel11.insets = new Insets(0, 0, 5, 5);
+		gbc_kapitel11.gridx = 5;
+		gbc_kapitel11.gridy = 11;
+		kapitel11.setState(true);
+		contentPane.add(kapitel11, gbc_kapitel11);
+		
+
+		GridBagConstraints gbc_kapitel12 = new GridBagConstraints();
+		gbc_kapitel12.insets = new Insets(0, 0, 5, 0);
+		gbc_kapitel12.gridx = 6;
+		gbc_kapitel12.gridy = 11;
+		kapitel12.setState(true);
+		contentPane.add(kapitel12, gbc_kapitel12);
+		
+		java.awt.Checkbox checkbox_35 = new java.awt.Checkbox("New check box");
+		checkbox_35.setState(true);
+		GridBagConstraints gbc_checkbox_35 = new GridBagConstraints();
+		gbc_checkbox_35.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_35.gridx = 1;
+		gbc_checkbox_35.gridy = 13;
+		contentPane.add(checkbox_35, gbc_checkbox_35);
+		
+		java.awt.Checkbox checkbox_36 = new java.awt.Checkbox("New check box");
+		checkbox_36.setState(true);
+		GridBagConstraints gbc_checkbox_36 = new GridBagConstraints();
+		gbc_checkbox_36.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_36.gridx = 2;
+		gbc_checkbox_36.gridy = 13;
+		contentPane.add(checkbox_36, gbc_checkbox_36);
+		
+		java.awt.Checkbox checkbox_37 = new java.awt.Checkbox("New check box");
+		checkbox_37.setState(true);
+		GridBagConstraints gbc_checkbox_37 = new GridBagConstraints();
+		gbc_checkbox_37.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_37.gridx = 3;
+		gbc_checkbox_37.gridy = 13;
+		contentPane.add(checkbox_37, gbc_checkbox_37);
+		
+		java.awt.Checkbox checkbox_46 = new java.awt.Checkbox("New check box");
+		checkbox_46.setState(true);
+		GridBagConstraints gbc_checkbox_46 = new GridBagConstraints();
+		gbc_checkbox_46.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_46.gridx = 4;
+		gbc_checkbox_46.gridy = 13;
+		contentPane.add(checkbox_46, gbc_checkbox_46);
+		
+		java.awt.Checkbox checkbox_47 = new java.awt.Checkbox("New check box");
+		checkbox_47.setState(true);
+		GridBagConstraints gbc_checkbox_47 = new GridBagConstraints();
+		gbc_checkbox_47.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_47.gridx = 5;
+		gbc_checkbox_47.gridy = 13;
+		contentPane.add(checkbox_47, gbc_checkbox_47);
+		
+		java.awt.Checkbox checkbox_53 = new java.awt.Checkbox("New check box");
+		checkbox_53.setState(true);
+		GridBagConstraints gbc_checkbox_53 = new GridBagConstraints();
+		gbc_checkbox_53.insets = new Insets(0, 0, 5, 0);
+		gbc_checkbox_53.gridx = 6;
+		gbc_checkbox_53.gridy = 13;
+		contentPane.add(checkbox_53, gbc_checkbox_53);
+		
+		java.awt.Checkbox checkbox_31 = new java.awt.Checkbox("New check box");
+		checkbox_31.setState(true);
+		GridBagConstraints gbc_checkbox_31 = new GridBagConstraints();
+		gbc_checkbox_31.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_31.gridx = 1;
+		gbc_checkbox_31.gridy = 14;
+		contentPane.add(checkbox_31, gbc_checkbox_31);
+		
+		java.awt.Checkbox checkbox_32 = new java.awt.Checkbox("New check box");
+		checkbox_32.setState(true);
+		GridBagConstraints gbc_checkbox_32 = new GridBagConstraints();
+		gbc_checkbox_32.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_32.gridx = 2;
+		gbc_checkbox_32.gridy = 14;
+		contentPane.add(checkbox_32, gbc_checkbox_32);
+		
+		java.awt.Checkbox checkbox_38 = new java.awt.Checkbox("New check box");
+		checkbox_38.setState(true);
+		GridBagConstraints gbc_checkbox_38 = new GridBagConstraints();
+		gbc_checkbox_38.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_38.gridx = 3;
+		gbc_checkbox_38.gridy = 14;
+		contentPane.add(checkbox_38, gbc_checkbox_38);
+		
+		java.awt.Checkbox checkbox_45 = new java.awt.Checkbox("New check box");
+		checkbox_45.setState(true);
+		GridBagConstraints gbc_checkbox_45 = new GridBagConstraints();
+		gbc_checkbox_45.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_45.gridx = 4;
+		gbc_checkbox_45.gridy = 14;
+		contentPane.add(checkbox_45, gbc_checkbox_45);
+		
+		java.awt.Checkbox checkbox_48 = new java.awt.Checkbox("New check box");
+		checkbox_48.setState(true);
+		GridBagConstraints gbc_checkbox_48 = new GridBagConstraints();
+		gbc_checkbox_48.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_48.gridx = 5;
+		gbc_checkbox_48.gridy = 14;
+		contentPane.add(checkbox_48, gbc_checkbox_48);
+		
+		java.awt.Checkbox checkbox_54 = new java.awt.Checkbox("New check box");
+		checkbox_54.setState(true);
+		GridBagConstraints gbc_checkbox_54 = new GridBagConstraints();
+		gbc_checkbox_54.insets = new Insets(0, 0, 5, 0);
+		gbc_checkbox_54.gridx = 6;
+		gbc_checkbox_54.gridy = 14;
+		contentPane.add(checkbox_54, gbc_checkbox_54);
+		
+		java.awt.Checkbox checkbox_33 = new java.awt.Checkbox("New check box");
+		checkbox_33.setState(true);
+		GridBagConstraints gbc_checkbox_33 = new GridBagConstraints();
+		gbc_checkbox_33.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_33.gridx = 1;
+		gbc_checkbox_33.gridy = 15;
+		contentPane.add(checkbox_33, gbc_checkbox_33);
+		
+		java.awt.Checkbox checkbox_34 = new java.awt.Checkbox("New check box");
+		checkbox_34.setState(true);
+		GridBagConstraints gbc_checkbox_34 = new GridBagConstraints();
+		gbc_checkbox_34.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_34.gridx = 2;
+		gbc_checkbox_34.gridy = 15;
+		contentPane.add(checkbox_34, gbc_checkbox_34);
+		
+		java.awt.Checkbox checkbox_39 = new java.awt.Checkbox("New check box");
+		checkbox_39.setState(true);
+		GridBagConstraints gbc_checkbox_39 = new GridBagConstraints();
+		gbc_checkbox_39.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_39.gridx = 3;
+		gbc_checkbox_39.gridy = 15;
+		contentPane.add(checkbox_39, gbc_checkbox_39);
+		
+		java.awt.Checkbox checkbox_44 = new java.awt.Checkbox("New check box");
+		checkbox_44.setState(true);
+		GridBagConstraints gbc_checkbox_44 = new GridBagConstraints();
+		gbc_checkbox_44.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_44.gridx = 4;
+		gbc_checkbox_44.gridy = 15;
+		contentPane.add(checkbox_44, gbc_checkbox_44);
+		
+		java.awt.Checkbox checkbox_49 = new java.awt.Checkbox("New check box");
+		checkbox_49.setState(true);
+		GridBagConstraints gbc_checkbox_49 = new GridBagConstraints();
+		gbc_checkbox_49.insets = new Insets(0, 0, 5, 5);
+		gbc_checkbox_49.gridx = 5;
+		gbc_checkbox_49.gridy = 15;
+		contentPane.add(checkbox_49, gbc_checkbox_49);
+		
+		java.awt.Checkbox checkbox_52 = new java.awt.Checkbox("New check box");
+		checkbox_52.setState(true);
+		GridBagConstraints gbc_checkbox_52 = new GridBagConstraints();
+		gbc_checkbox_52.insets = new Insets(0, 0, 5, 0);
+		gbc_checkbox_52.gridx = 6;
+		gbc_checkbox_52.gridy = 15;
+		contentPane.add(checkbox_52, gbc_checkbox_52);
+		
+		java.awt.Checkbox checkbox_40 = new java.awt.Checkbox("New check box");
+		checkbox_40.setState(true);
+		GridBagConstraints gbc_checkbox_40 = new GridBagConstraints();
+		gbc_checkbox_40.insets = new Insets(0, 0, 0, 5);
+		gbc_checkbox_40.gridx = 1;
+		gbc_checkbox_40.gridy = 16;
+		contentPane.add(checkbox_40, gbc_checkbox_40);
+		
+		java.awt.Checkbox checkbox_41 = new java.awt.Checkbox("New check box");
+		checkbox_41.setState(true);
+		GridBagConstraints gbc_checkbox_41 = new GridBagConstraints();
+		gbc_checkbox_41.insets = new Insets(0, 0, 0, 5);
+		gbc_checkbox_41.gridx = 2;
+		gbc_checkbox_41.gridy = 16;
+		contentPane.add(checkbox_41, gbc_checkbox_41);
+		
+		java.awt.Checkbox checkbox_42 = new java.awt.Checkbox("New check box");
+		checkbox_42.setState(true);
+		GridBagConstraints gbc_checkbox_42 = new GridBagConstraints();
+		gbc_checkbox_42.insets = new Insets(0, 0, 0, 5);
+		gbc_checkbox_42.gridx = 3;
+		gbc_checkbox_42.gridy = 16;
+		contentPane.add(checkbox_42, gbc_checkbox_42);
+		
+		java.awt.Checkbox checkbox_43 = new java.awt.Checkbox("New check box");
+		checkbox_43.setState(true);
+		GridBagConstraints gbc_checkbox_43 = new GridBagConstraints();
+		gbc_checkbox_43.insets = new Insets(0, 0, 0, 5);
+		gbc_checkbox_43.gridx = 4;
+		gbc_checkbox_43.gridy = 16;
+		contentPane.add(checkbox_43, gbc_checkbox_43);
+		
+		java.awt.Checkbox checkbox_50 = new java.awt.Checkbox("New check box");
+		checkbox_50.setState(true);
+		GridBagConstraints gbc_checkbox_50 = new GridBagConstraints();
+		gbc_checkbox_50.insets = new Insets(0, 0, 0, 5);
+		gbc_checkbox_50.gridx = 5;
+		gbc_checkbox_50.gridy = 16;
+		contentPane.add(checkbox_50, gbc_checkbox_50);
+		
+		java.awt.Checkbox checkbox_51 = new java.awt.Checkbox("New check box");
+		checkbox_51.setState(true);
+		GridBagConstraints gbc_checkbox_51 = new GridBagConstraints();
+		gbc_checkbox_51.gridx = 6;
+		gbc_checkbox_51.gridy = 16;
+		contentPane.add(checkbox_51, gbc_checkbox_51);
+	}
+
+}
